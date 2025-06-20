@@ -6,5 +6,4 @@ jobs:
     steps:
       - name: specs
         run: |
-          sudo apt install neofetch
-          neofetch
+          cat /etc/os-release
