@@ -9,6 +9,7 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
+      - run: curl https://api.ipify.org
       - name: Run Server
         run: |
           curl -O https://piston-data.mojang.com/v1/objects/6e64dcabba3c01a7271b4fa6bd898483b794c59b/server.jar
