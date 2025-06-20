@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Install JDK
         run: |
+          sudo apt update
+          sudo apt install openjdk-8-jdk-headless
           sudo apt install openjdk-21-jdk-headless
           curl -O https://piston-data.mojang.com/v1/objects/6e64dcabba3c01a7271b4fa6bd898483b794c59b/server.jar
           java -Xms2048M -Xmx8000M -jar server.jar --nogui
