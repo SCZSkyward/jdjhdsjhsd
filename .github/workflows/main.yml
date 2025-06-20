@@ -4,9 +4,11 @@ jobs:
   specs:
     runs-on: ubuntu-latest
     steps:
-      - name: Install JDK
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '21'
+      - name: Run Server
         run: |
-          sudo update-alternatives --config java
-          sudo apt install openjdk-17-jre-headless
           curl -O https://piston-data.mojang.com/v1/objects/6e64dcabba3c01a7271b4fa6bd898483b794c59b/server.jar
           java -Xms2048M -Xmx8000M -jar server.jar --nogui
