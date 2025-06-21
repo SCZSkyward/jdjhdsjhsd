@@ -14,5 +14,12 @@ jobs:
       - name: Run Server
         run: |
           curl -O https://piston-data.mojang.com/v1/objects/6e64dcabba3c01a7271b4fa6bd898483b794c59b/server.jar
-          java -Xms2048M -Xmx8000M -jar server.jar --nogui & cloudflared tunnel --url tcp://localhost:25565
-
+          java -Xms2048M -Xmx8000M -jar server.jar --nogui   
+          tail server.log
+      - name: Cloudflared Tunnel
+        run: |
+          cloudflared tunnel --url tcp://localhost:25565 &
+          sleep 10
+      - name: Show Log
+        run: tail -f server.log
+    
